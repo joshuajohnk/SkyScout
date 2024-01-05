@@ -1,0 +1,18 @@
+body,.card,.resultcontainer{
+    font-family: 'Roboto', sans-serif;
+}
+
+#navhead{
+    font-size: 4vh;
+    margin-top: -1vh;
+    color: #f6f6f6;
+}
+
+.whthr-items,.more-items,.itemy{
+    font-size: 1.2rem;
+}
+
+.itemx{
+    padding-bottom: 0.3rem;
+    padding-top: 0.3rem;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Scout</title>
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="text.css">
+    <!-- External Links-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Maps API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTeawxansBkPvq6e4GTBDIbUODCkEtpiA"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 0px;">
+        <!-- Navbarrr -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-dark ">
+            <div class="container1 d-flex justify-content-between" style="width: 100%;">
+                <div class="imgcontainer d-flex ms-3 mt-1 mb-1">
+                <img src="./assets/logo1.png" alt="" class="rounded ms-3">   
+                <a class="navbar-brand ps-3 " href="#" id="navhead">Sky Scout</a>
+                </div>
+             
+              <div>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Button 1</a>
+                      </li>
+                    </ul>
+                  <div>
+              </div>
+            </div>
+        </nav>
+
+        <div class="container_landing" style="height: 90vh;">
+            <video id="bgvid" autoplay loop muted>
+                <source src="./assets/vid1.mp4" type="video/mp4">
+            </video>
+            <div class="container ">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-md-6 text-center">
+                        <h1>Welcome to Sky Scout</h1>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="cityname" placeholder="Search Cities..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" onclick="search(),initMap()"  type="button">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <section id="results">
+                <div class="resultcontainer py-5" style="height: 100vh; background-color: antiquewhite;">
+                    <h1 class="text-center mt-4 mb-5"><i>Scout Results</i></h1>
+                    <p id="lati"></p>
+                    <p id="longi"></p>
+                    <div class="row">
+
+                        <div class="col-8">
+                            <div class="row" id="result">
+                                <div class="col-6">
+                                    <div class="card ms-4 me-3 pb-4" id="cards">
+                                        <div class="card-body">
+                                          <div class="d-flex justify-content-center align-items-center">
+                                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="">
+                                            <div class="itemx">Light Rain</div>
+                                        </div>
+                                          <div class="whthr-items ps-5 d-flex flex-column ">
+                                              <div class="itemx">Temperature :  </div>
+                                              <div class="itemx">Feels Like :   </div>
+                                              
+                                              <div class="itemx">Humidity :     </div>
+                                              <div class="itemx">Pressure :     </div>
+                                              <div class="itemx">Wind Speed :   </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card ms-3 me-3 pt-4 pb-4" id="cards">
+                                        <div class="card-body">
+                                          <div class="more-items  d-flex flex-column h-100 justify-content-center">
+                                              <div class="row">
+                                                <div class="d-flex justify-content-center mb-3"><h5>Coordinates</h5></div>
+                                                <div class="col-6 text-center">
+                                                    <p class="itemy">Latitude :</p>
+                                                    <p class="itemy" id="lati"></p>
+                                                </div>
+                                                <div class="col-6 text-center">
+                                                    <p class="itemy">Longitude :</p>
+                                                    <p class="itemy" id="longi"></p>
+                                                </div>
+                                              </div>
+                                              <div class="ps-5">
+                                                  <div class="itemx">Sea Level : </div>
+                                                  <div class="itemx">Ground Level : </div>
+                                                  <div class="itemx">Sunrise :</div>
+                                                  <div class="itemx">Sunset :</div>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <div class="card ms-3 me-4 " id="cards">
+                                <div class="card-body">
+                                    <div id="map" style="width: 100%; height: 100%;"></div>
+                                </div>
+                              </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" integrity="sha512-CryKbMe7sjSCDPl18jtJI5DR5jtkUWxPXWaLCst6QjH8wxDexfRJic2WRmRXmstr2Y8SxDDWuBO6CQC6IE4KTA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js">
+    </script>
+    <script src="maps.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTeawxansBkPvq6e4GTBDIbUODCkEtpiA&callback=initMap"></script>    
+
+
+</body>
+</html>

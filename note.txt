@@ -1,0 +1,32 @@
+Sections:
+
+|| Navbar(Just logo and donate modal) || hero || Result || Footer ||
+
+Links:
+1)fontawesome
+2)googlefonts
+3)bootstrap
+
+Navbar: 1) Logo  2) Donate
+
+Hero:   1) Gif Background showing multiple weathers
+        2) simple minimal searchbar with an onhover animated search icon on button
+        3) on search scroll down smoothly to Result section
+
+Result: 1) Grid layout
+        2) Weather status animated image
+        3) Basic Details atleast 8 relevant info
+        4) details should load smoothly
+        5) navigate to top arrow button on right side
+        6) Google maps if possible showing that location
+        6) If possible use a different background based on terrain type 
+    
+Footer: 1) copyright
+        2) license
+        3) api
+        4) donate
+        5) terms and conditions
+        6) follow us
+
+My apikey : 400304924046d7591668f20d81417b43
+maps api key : AIzaSyBTeawxansBkPvq6e4GTBDIbUODCkEtpiA // usage// key=API_KEY
